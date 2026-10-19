@@ -19,8 +19,8 @@ const recuerdos = [
     foto: "assets/comien.jpg",
     fallbackFoto: "assets/comien.jpeg",
     titulo: "El Comienzo de Nuestra Magia",
-    tag: "Donde Todo Empezó ✨",
-    mensaje: "Recuerdo con perfecta claridad el día en que nuestras miradas se cruzaron por primera vez. En ese instante supe que el destino me estaba regalando a la persona más especial del universo. Gracias por comenzar esta historia conmigo.",
+    tag: "Donde Todo Empezó 💘✨",
+    mensaje: "Recuerdo con perfecta claridad el día en que nuestras miradas se cruzaron por primera vez. En ese instante supe que el destino me estaba regalando a la persona más especial del universo, eran miradas que se sentian tan hermosas y solo verte me deba pena. Gracias por comenzar esta historia conmigo.",
     pos: [22, 12, -10]
   },
   {
@@ -28,17 +28,17 @@ const recuerdos = [
     foto: "assets/risa.jpg",
     fallbackFoto: "assets/risa.jpeg",
     titulo: "Nuestras Risas Inolvidables",
-    tag: "Alegría Compartida 🌸",
-    mensaje: "Tu risa tiene ese poder único de iluminar hasta el día más nublado. Cada momento riendo juntos, cada chiste tonto y cada mirada cómplice son tesoros que guardo en lo más profundo de mi corazón.",
+    tag: "Alegría Compartida 🌸💘",
+    mensaje: "Tu risa tiene ese poder único de iluminar hasta el día más nublado. amo cada locura que hemos hecho. Cada momento riendo juntos, cada chiste tonto y cada mirada complice son tesoros que guardo en lo mas profundo de mi corazan.",
     pos: [-20, 16, 14]
   },
   {
     id: 3,
     foto: "assets/aventura.jpg",
     fallbackFoto: "assets/aventura.jpeg",
-    titulo: "Aquel Viaje Soñado",
+    titulo: "Aquella salida tan hermosa e inolvidable",
     tag: "Aventuras de la Mano 🗺️",
-    mensaje: "Caminar contigo por nuevos lugares hace que cualquier rincón del mundo se sienta como el paraíso. No importa el destino, mi lugar favorito siempre será a tu lado.",
+    mensaje: "Fue muy hermoso esa salida la llevo en mi corazon por simpre. No importa el destino, mi lugar favorito siempre sera andat a tu lado agarrados de la mano.",
     pos: [28, -10, 16]
   },
   {
@@ -47,52 +47,52 @@ const recuerdos = [
     fallbackFoto: "assets/foto3.jpg.jpeg",
     titulo: "La Paz en Tus Abrazos",
     tag: "Mi Refugio Seguro 🕊️",
-    mensaje: "Cuando el mundo se vuelve ruidoso o agotador, un abrazo tuyo me devuelve la calma en un segundo. Eres mi hogar, mi refugio y el lugar donde mi alma siempre quiere descansar.",
+    mensaje: "Cuando el mundo en mi contra mi refugio son tus brazos, me siento seguro y en paz, un abrazo tuyo me devuelve la calma en un segundo. Eres mi hogar, mi refugio y el lugar donde mi alma siempre quiere descansar.",
     pos: [-26, -15, -12]
   },
   {
     id: 5,
     foto: "assets/foto6.jpg",
     fallbackFoto: "assets/foto6.jpg.jpeg",
-    titulo: "Los Pequeños Detalles",
-    tag: "La Belleza de lo Simple ☕",
-    mensaje: "Una charla interminable hasta la madrugada, un café compartido en silencio o una canción escuchada juntos. En los detalles más sencillos es donde más inmenso siento nuestro amor.",
+    titulo: "Nuestros hermosos momentos donde me siento yo mismo",
+    tag: "Locos enamorados",
+    mensaje: "Una noche/tarde. Donde al recordar esos momentos me doy cuenta de lo hermoso que es nuestra relacion, gracias por hacer mis momenos mas felices.",
     pos: [12, 24, 20]
   },
   {
     id: 6,
     foto: "assets/foto4.jpg",
     fallbackFoto: "assets/foto4.jpg.jpeg",
-    titulo: "Tu Sonrisa, Mi Inspiración",
-    tag: "Luz de Mis Ojos 💫",
-    mensaje: "Tienes la sonrisa más hermosa que existe. Verte sonreír me llena de energía, me hace soñar en grande y me recuerda la suerte tan infinita que tengo de tenerte en mi vida.",
+    titulo: "Tu sonrisa, mi Inspiración",
+    tag: "Luz de mis ojos 💘💫",
+    mensaje: "Tienes la sonrisa mas hermosa que existe y cuando te veo digo woww AMO A MI NOVIA. Verte sonreir me llena de energia, me hace soñar en grande y en un futuro y me recuerda la suerte tan infinita que tengo de tenerte en mi vida.",
     pos: [-14, 22, -22]
   },
   {
     id: 7,
-    foto: "assets/tor.jpg",
-    fallbackFoto: "assets/tor.jpeg",
-    titulo: "Juntos Contra Cualquier Tormenta",
-    tag: "Equipo Inquebrantable 🛡️",
-    mensaje: "No hay obstáculo que parezca grande cuando estamos juntos. Gracias por tu apoyo incondicional, por creer en mí y por ser la mejor compañera de vida que alguien podría desear.",
+    foto: "assets/tor1.jpg",
+    fallbackFoto: "assets/tor1.jpeg",
+    titulo: "Juntos contra cualquier tormenta",
+    tag: "Equipo Inquebrantable. Equipo snoopyyyy 🛡️💘💘💘💘",
+    mensaje: "No hay obstaculo que parezca grande cuando estamos juntos. Gracias por tu apoyo incondicional, por creer en mi y por ser la mejor compañera de vida que alguien podria desear, quiero que seas mi fifi y yo tu valiente snoopy y luchar contra el Baron Rojo y ser falices para siempre 💘💘💘💘.",
     pos: [26, -18, -18]
   },
   {
     id: 8,
     foto: "assets/foto7.jpg",
     fallbackFoto: "assets/foto7.jpg.jpeg",
-    titulo: "Nuestras Miradas Secretas",
-    tag: "Conexión de Almas 🔮",
-    mensaje: "Ese instante en el que no necesitamos palabras para saber exactamente qué piensa el otro. Nuestra conexión es mágica, sincera y más profunda de lo que jamás pude imaginar.",
+    titulo: "Nuestras miradas secretas",
+    tag: "Conexión de Almas 💘💘💘💘",
+    mensaje: "Ese instante en el que no necesitamos palabras para saber exactamente que piensa el otro. Nuestra conexion es magica, sincera y mas profunda de lo que jamas pude imaginar.",
     pos: [-28, 8, 25]
   },
   {
     id: 9,
     foto: "assets/camino.jpg",
     fallbackFoto: "assets/camino.jpeg",
-    titulo: "Soñando con el Futuro",
+    titulo: "Soñando con el futuro",
     tag: "Mil Caminos por Recorrer 🚀",
-    mensaje: "Cuando pienso en los años que vienen, en mis metas y en mis sueños, en todos ellos estás tú. Quiero seguir construyendo recuerdos, cumpliendo metas y celebrando la vida a tu lado.",
+    mensaje: "Cuando pienso en los años que vienen, en mis metas y en mis sueños, en todos ellos estas tu. Quiero seguir construyendo recuerdos, cumpliendo metas y celebrando la vida a tu lado.",
     pos: [6, -26, 14]
   },
   {
