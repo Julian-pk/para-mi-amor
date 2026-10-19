@@ -1,0 +1,1455 @@
+/* ==========================================================================
+   UNIVERSO DE RECUERDOS - ESTILOS PRINCIPALES (MOBILE-FIRST)
+   Diseño Romántico, Moderno, Glassmorphism y 100% Adaptable
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE DISEÑO & TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta de Colores Cósmica y Romántica */
+  --bg-deep-space: #060713;
+  --bg-space-dark: #0b0c1e;
+  --bg-nebula-violet: #1a103c;
+  
+  --gold-primary: #ffd166;
+  --gold-light: #fff2b2;
+  --gold-dark: #cca43b;
+  --gold-glow: rgba(255, 209, 102, 0.45);
+  --gold-gradient: linear-gradient(135deg, #ffe082 0%, #ffd166 50%, #f39c12 100%);
+  
+  --rose-primary: #ff758f;
+  --rose-soft: #ffb3c1;
+  --rose-glow: rgba(255, 117, 143, 0.4);
+  --rose-gradient: linear-gradient(135deg, #ff9ebb 0%, #ff758f 50%, #c9184a 100%);
+
+  --text-primary: #f8f9fa;
+  --text-secondary: rgba(248, 249, 250, 0.78);
+  --text-muted: rgba(248, 249, 250, 0.52);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(14, 13, 30, 0.78);
+  --glass-bg-hover: rgba(22, 20, 48, 0.88);
+  --glass-border: rgba(255, 215, 120, 0.22);
+  --glass-border-focus: rgba(255, 215, 120, 0.6);
+  --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 209, 102, 0.12);
+  --glass-blur: blur(24px) saturate(160%);
+
+  /* Tipografías */
+  --font-heading: 'Cinzel', serif;
+  --font-script: 'Dancing Script', cursive;
+  --font-body: 'Outfit', sans-serif;
+
+  /* Transiciones & Sombras */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & CONFIGURACIÓN BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  background-color: var(--bg-deep-space);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Soporte para altura dinámica en navegadores móviles */
+.welcome-screen,
+.canvas-container,
+.hud-overlay {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* --------------------------------------------------------------------------
+   3. PANTALLA DE BIENVENIDA (OVERLAY DE ENTRADA CON FOTO 10)
+   -------------------------------------------------------------------------- */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  padding-top: calc(1.25rem + env(safe-area-inset-top));
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s ease;
+}
+
+.welcome-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Imagen de fondo Foto 10 con tratamiento cinematográfico */
+.welcome-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(0.65) contrast(1.1) saturate(1.15);
+  transform: scale(1.05);
+  transition: transform 12s ease-out;
+  z-index: 1;
+}
+
+.welcome-screen:not(.hidden) .welcome-bg-image {
+  transform: scale(1);
+}
+
+/* Superposición oscura y romántica con viñeta para legibilidad */
+.welcome-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(16, 12, 38, 0.72) 0%, rgba(6, 7, 19, 0.94) 85%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+/* Partículas centelleantes decorativas en la bienvenida */
+.welcome-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 40px 70px, rgba(255, 215, 120, 0.9), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 160px 120px, rgba(255, 140, 160, 0.8), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.6;
+  animation: particlesFloat 30s linear infinite;
+}
+
+@keyframes particlesFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+/* Tarjeta Central de Bienvenida */
+.welcome-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 460px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  box-shadow: var(--glass-shadow);
+  animation: cardAppear 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.3);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.welcome-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.welcome-title-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 25px rgba(255, 209, 102, 0.35);
+}
+
+.welcome-subtitle {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.audio-hint-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rose-primary);
+  box-shadow: 0 0 10px var(--rose-primary);
+  animation: dotPulse 1.8s infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+/* Botón Principal para Encender las Estrellas */
+.btn-enter {
+  position: relative;
+  width: 100%;
+  min-height: 56px;
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  background: var(--gold-gradient);
+  color: #1a0f00;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(255, 209, 102, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-enter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 209, 102, 0.55);
+}
+
+.btn-enter:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 15px rgba(255, 209, 102, 0.35);
+}
+
+.btn-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%);
+  opacity: 0;
+  transform: rotate(30deg);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-enter:hover .btn-glow {
+  opacity: 1;
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  font-size: 1.25rem;
+  animation: sparkleTwinkle 2s infinite ease-in-out;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.25) rotate(15deg); }
+}
+
+.welcome-footer-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 1.25rem;
+  font-weight: 300;
+}
+
+/* --------------------------------------------------------------------------
+   4. CONTENEDOR 3D (CANVAS THREE.JS)
+   -------------------------------------------------------------------------- */
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--bg-deep-space);
+}
+
+#webgl-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  outline: none;
+  cursor: grab;
+}
+
+#webgl-canvas:active {
+  cursor: grabbing;
+}
+
+/* --------------------------------------------------------------------------
+   5. HUD Y ELEMENTOS SUPERPUESTOS (OVERLAY)
+   -------------------------------------------------------------------------- */
+.hud-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  pointer-events: none; /* Permite interactuar con el canvas 3D */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(1rem + env(safe-area-inset-top)) 1.25rem calc(1rem + env(safe-area-inset-bottom)) 1.25rem;
+}
+
+/* Barra Superior */
+.hud-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.hud-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.brand-sparkle {
+  font-size: 1.25rem;
+  animation: sparkleRotate 6s linear infinite;
+}
+
+@keyframes sparkleRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--gold-light);
+}
+
+.brand-subtitle {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Acciones en la barra superior */
+.hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.counter-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  min-height: 44px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.counter-icon {
+  font-size: 0.95rem;
+}
+
+.counter-label {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .counter-label {
+    display: inline;
+  }
+}
+
+.hud-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.hud-btn:hover {
+  transform: scale(1.08);
+  border-color: var(--gold-primary);
+  background: var(--glass-bg-hover);
+}
+
+.hud-btn:active {
+  transform: scale(0.95);
+}
+
+/* Ecualizador / Barras de Sonido */
+.sound-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 16px;
+}
+
+.sound-bars .bar {
+  width: 2.5px;
+  background: var(--gold-primary);
+  border-radius: 3px;
+  height: 4px;
+  transition: height 0.2s ease;
+}
+
+.music-btn.playing .bar1 {
+  animation: soundBar 1.2s ease-in-out infinite 0.1s;
+}
+.music-btn.playing .bar2 {
+  animation: soundBar 1.2s ease-in-out infinite 0.4s;
+}
+.music-btn.playing .bar3 {
+  animation: soundBar 1.2s ease-in-out infinite 0.2s;
+}
+.music-btn.playing .bar4 {
+  animation: soundBar 1.2s ease-in-out infinite 0.5s;
+}
+
+@keyframes soundBar {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.music-btn.muted .sound-bars .bar {
+  height: 3px;
+  background: var(--text-muted);
+}
+
+/* Indicador Inferior */
+.hud-bottom-tip {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.tip-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  box-shadow: var(--glass-shadow);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 92%;
+}
+
+.tip-icon {
+  color: var(--gold-primary);
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. MODALES FLOTANTES (GLASSMORPHISM)
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(4, 5, 14, 0.68);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  padding-top: calc(1.25rem + env(safe-area-inset-top));
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  max-height: 90dvh;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: scale(0.9) translateY(20px);
+  transition: transform var(--transition-spring), opacity var(--transition-smooth);
+}
+
+.modal-backdrop.active .modal-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Botón de Cierre Grande y Accesible para Pulgar y Mouse */
+.modal-close-btn {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.modal-close-btn:active {
+  transform: scale(0.92);
+}
+
+/* Contenedor de la Foto del Recuerdo con Fondo Difuminado (Cero Rostros Cortados) */
+.modal-image-col {
+  width: 100%;
+  margin-bottom: 0.85rem;
+  flex-shrink: 0;
+}
+
+.modal-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(210px, 35vh, 280px);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(8, 7, 18, 0.95);
+  border: 1px solid rgba(255, 215, 120, 0.28);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fondo difuminado que llena los bordes con la paleta de la foto */
+.image-blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(18px) brightness(0.35) saturate(1.4);
+  transform: scale(1.2);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Foto principal completa sin ningún recorte */
+.image-main {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-image-wrapper:hover .image-main {
+  transform: scale(1.03);
+}
+
+.image-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Columna de Información del Recuerdo */
+.modal-info-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+  padding-right: 2.75rem; /* Espacio para no chocar con la X */
+}
+
+.modal-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+}
+
+.modal-status-badge {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.45rem;
+}
+
+.modal-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.modal-divider::before,
+.modal-divider::after {
+  content: '';
+  height: 1px;
+  flex-grow: 1;
+  background: linear-gradient(90deg, rgba(255,209,102,0.3), transparent);
+}
+.modal-divider::after {
+  background: linear-gradient(270deg, rgba(255,209,102,0.3), transparent);
+}
+
+.modal-divider span {
+  font-size: 0.8rem;
+}
+
+/* Contenedor del texto: fluye de manera natural dentro del modal con scroll unificado */
+.modal-text-scroller {
+  overflow: visible;
+  max-height: none;
+  margin-bottom: 1.15rem;
+}
+
+/* Scrollbar estilizada */
+.modal-text-scroller::-webkit-scrollbar,
+.birthday-letter-scroller::-webkit-scrollbar,
+.drawer-content::-webkit-scrollbar,
+.modal-card::-webkit-scrollbar,
+.birthday-card::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-text-scroller::-webkit-scrollbar-track,
+.birthday-letter-scroller::-webkit-scrollbar-track,
+.drawer-content::-webkit-scrollbar-track,
+.modal-card::-webkit-scrollbar-track,
+.birthday-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+.modal-text-scroller::-webkit-scrollbar-thumb,
+.birthday-letter-scroller::-webkit-scrollbar-thumb,
+.drawer-content::-webkit-scrollbar-thumb,
+.modal-card::-webkit-scrollbar-thumb,
+.birthday-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 209, 102, 0.45);
+  border-radius: 4px;
+}
+
+.modal-description {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* Pie del Modal con Navegación */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-nav-btn {
+  padding: 0.65rem 0.9rem;
+  min-height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.modal-nav-btn:hover {
+  background: rgba(255, 209, 102, 0.15);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+
+.modal-back-btn {
+  padding: 0.65rem 0.9rem;
+  min-height: 44px;
+  border-radius: 12px;
+  background: var(--gold-gradient);
+  border: none;
+  color: #1a0f00;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.modal-back-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 209, 102, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   7. MODAL DE CUMPLEAÑOS (ESTRELLA PRINCIPAL - FOTO 11)
+   -------------------------------------------------------------------------- */
+.birthday-card {
+  max-width: 480px;
+  max-height: 90vh;
+  max-height: 90dvh;
+  background: linear-gradient(145deg, rgba(20, 16, 42, 0.94) 0%, rgba(10, 8, 26, 0.98) 100%);
+  border: 1px solid rgba(255, 215, 120, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 209, 102, 0.25);
+  text-align: center;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Borde resplandeciente animado */
+.birthday-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffd166, #ff758f, #ffd166, transparent);
+  background-size: 200% 100%;
+  animation: shimmerBorder 4s linear infinite;
+  z-index: 5;
+}
+
+.birthday-crown {
+  font-size: 2.2rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.35rem;
+  animation: crownBob 3s ease-in-out infinite;
+}
+
+.birthday-badge {
+  display: inline-flex;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255, 209, 102, 0.15);
+  border: 1px solid rgba(255, 209, 102, 0.4);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+  margin-bottom: 0.75rem;
+}
+
+.birthday-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+}
+
+.birthday-name-gradient {
+  background: var(--rose-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 20px rgba(255, 117, 143, 0.3);
+}
+
+/* Foto Especial #11 Completa */
+.birthday-image-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.birthday-image-wrapper {
+  position: relative;
+  width: 170px;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 0 30px rgba(255, 209, 102, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 8, 26, 0.95);
+}
+
+.golden-border-aura {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 22px;
+  border: 1px dashed rgba(255, 209, 102, 0.5);
+  animation: rotateAura 20s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.desktop-confetti-btn {
+  display: none;
+}
+.mobile-confetti-btn {
+  display: block;
+}
+
+/* Carta de Cumpleaños: texto fluido sin restricciones artificiales */
+.birthday-info-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.birthday-letter-scroller {
+  overflow: visible;
+  max-height: none;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.letter-intro {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.letter-body {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+  font-weight: 300;
+}
+
+.letter-signature {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.signature-cursive {
+  font-family: var(--font-script);
+  font-size: 1.65rem;
+  color: var(--rose-primary);
+  display: inline-block;
+  margin-top: 0.35rem;
+}
+
+/* Acciones en la Carta de Cumpleaños */
+.birthday-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.btn-birthday-confetti {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.85rem 1.25rem;
+  border-radius: 14px;
+  border: none;
+  background: var(--gold-gradient);
+  color: #1a0f00;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-birthday-confetti:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 209, 102, 0.6);
+}
+
+.btn-birthday-confetti:active {
+  transform: scale(0.98);
+}
+
+.btn-birthday-return {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-secondary);
+  padding: 0.65rem 1rem;
+  min-height: 44px;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-birthday-return:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   8. GAVETA / DRAWER LATERAL DE RECUERDOS
+   -------------------------------------------------------------------------- */
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  height: 100dvh;
+  z-index: 60;
+  background: rgba(10, 9, 22, 0.94);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-left: 1px solid var(--glass-border);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+  padding: 1.5rem 1.25rem;
+  padding-top: calc(1.5rem + env(safe-area-inset-top));
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+}
+
+.drawer-panel.active {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.drawer-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.drawer-sparkle {
+  font-size: 1.2rem;
+}
+
+.drawer-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--gold-light);
+}
+
+.drawer-close-btn {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.drawer-content {
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-right: 0.25rem;
+}
+
+/* Tarjeta individual en el Drawer */
+.drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.drawer-item:hover {
+  background: rgba(255, 209, 102, 0.12);
+  border-color: rgba(255, 209, 102, 0.35);
+  transform: translateX(-4px);
+}
+
+.drawer-item.special-item {
+  background: rgba(255, 209, 102, 0.1);
+  border: 1px solid rgba(255, 209, 102, 0.4);
+}
+
+.drawer-item-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.drawer-item-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.drawer-item-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-item-tag {
+  font-size: 0.72rem;
+  color: var(--gold-primary);
+}
+
+/* --------------------------------------------------------------------------
+   9. TOOLTIP FLOTANTE 3D
+   -------------------------------------------------------------------------- */
+.star-tooltip {
+  position: fixed;
+  z-index: 25;
+  pointer-events: none;
+  background: rgba(14, 13, 30, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 209, 102, 0.4);
+  border-radius: 20px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0;
+  transform: translate(-50%, -130%) scale(0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.star-tooltip.visible {
+  opacity: 1;
+  transform: translate(-50%, -130%) scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   10. MEDIA QUERIES (DESKTOP, TABLET & COMPUTADORA PORTÁTIL)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .welcome-card {
+    padding: 3rem 2.5rem;
+  }
+  
+  .welcome-title {
+    font-size: 2.35rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .hud-overlay {
+    padding: 1.5rem 2rem;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  /* MODAL DE RECUERDO EN COMPUTADORA: Diseño 2 Columnas */
+  .modal-card {
+    max-width: 840px;
+    width: min(840px, 92vw);
+    max-height: min(580px, 86vh);
+    max-height: min(580px, 86dvh);
+    display: grid;
+    grid-template-columns: 330px 1fr;
+    gap: 1.75rem;
+    padding: 1.75rem 2rem;
+    align-items: stretch;
+    overflow-y: auto;
+  }
+
+  .modal-image-col {
+    margin-bottom: 0;
+    height: 100%;
+    min-height: 330px;
+  }
+
+  .modal-image-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    max-height: 480px;
+  }
+
+  .modal-info-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 330px;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+  }
+
+  .modal-header {
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-title {
+    font-size: 1.55rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-divider {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Contenedor de texto en PC: fluye libremente dentro de la tarjeta */
+  .modal-text-scroller {
+    overflow: visible;
+    max-height: none;
+    margin-bottom: 1.25rem;
+  }
+
+  .modal-description {
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .modal-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  /* MODAL DE CUMPLEAÑOS EN COMPUTADORA: Diseño 2 Columnas alineado al inicio */
+  .birthday-card {
+    max-width: 880px;
+    width: min(880px, 92vw);
+    max-height: min(640px, 88vh);
+    max-height: min(640px, 88dvh);
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    gap: 2rem;
+    padding: 2.25rem;
+    align-items: start;
+    text-align: left;
+    overflow-y: auto;
+  }
+
+  .birthday-image-col {
+    margin-bottom: 0;
+    justify-content: center;
+    gap: 0.85rem;
+  }
+
+  .birthday-crown {
+    font-size: 2.6rem;
+    margin: 0;
+  }
+
+  .birthday-image-wrapper {
+    width: 230px;
+    height: 290px;
+  }
+
+  .desktop-confetti-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 230px;
+    margin-top: 0.5rem;
+  }
+
+  .mobile-confetti-btn {
+    display: none;
+  }
+
+  .birthday-info-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .birthday-title {
+    font-size: 1.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .birthday-letter-scroller {
+    overflow: visible;
+    max-height: none;
+    margin-bottom: 1.25rem;
+  }
+
+  .birthday-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* Ajustes especiales para laptops y pantallas con baja altura vertical (ej. 585px) */
+@media (max-height: 640px) {
+  .welcome-card {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .welcome-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .welcome-subtitle {
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+  }
+
+  .modal-card {
+    max-height: 94vh !important;
+    max-height: 94dvh !important;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .modal-image-col,
+  .modal-image-wrapper {
+    min-height: 220px;
+    max-height: 300px;
+  }
+
+  .modal-info-col {
+    min-height: 220px;
+  }
+
+  .modal-text-scroller {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .birthday-card {
+    max-height: 94vh !important;
+    max-height: 94dvh !important;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .birthday-image-wrapper {
+    width: 170px;
+    height: 210px;
+  }
+
+  .desktop-confetti-btn {
+    width: 170px;
+  }
+
+  .birthday-letter-scroller {
+    overflow: visible;
+    max-height: none;
+  }
+}
