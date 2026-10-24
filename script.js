@@ -18,9 +18,9 @@ const recuerdos = [
     id: 1,
     foto: "assets/comien.jpg",
     fallbackFoto: "assets/comien.jpeg",
-    titulo: "El Comienzo de Nuestra Magia",
+    titulo: "El Comienzo de Nuestra Magia🥺💘",
     tag: "Donde Todo Empezó 💘✨",
-    mensaje: "Recuerdo con perfecta claridad el día en que nuestras miradas se cruzaron por primera vez. En ese instante supe que el destino me estaba regalando a la persona más especial del universo, eran miradas que se sentian tan hermosas y solo verte me deba pena. Gracias por comenzar esta historia conmigo.",
+    mensaje: "Recuerdo con perfecta claridad el día en que nuestras miradas se cruzaron por primera vez. En ese momento supe que el destino me estaba regalando a la persona más especial del universo, eran miradas que se sentian tan hermosas y solo verte me daba pena. Gracias por comenzar esta historia conmigo, eres lo mas hermoso que tengo mi bebe 🥺💘.",
     pos: [22, 12, -10]
   },
   {
@@ -29,7 +29,7 @@ const recuerdos = [
     fallbackFoto: "assets/risa.jpeg",
     titulo: "Nuestras Risas Inolvidables",
     tag: "Alegría Compartida 🌸💘",
-    mensaje: "Tu risa tiene ese poder único de iluminar hasta el día más nublado. amo cada locura que hemos hecho. Cada momento riendo juntos, cada chiste tonto y cada mirada complice son tesoros que guardo en lo mas profundo de mi corazan.",
+    mensaje: "Tu risa tiene ese poder único de iluminar hasta el día más nublado. amo cada locura que hemos hecho. Cada momento riendo juntos, cada chiste tonto y cada mirada con malicia son tesoros que guardo en lo mas profundo de mi corazon bebe🥺.",
     pos: [-20, 16, 14]
   },
   {
@@ -38,7 +38,7 @@ const recuerdos = [
     fallbackFoto: "assets/aventura.jpeg",
     titulo: "Aquella salida tan hermosa e inolvidable",
     tag: "Aventuras de la Mano 🗺️",
-    mensaje: "Fue muy hermoso esa salida la llevo en mi corazon por simpre. No importa el destino, mi lugar favorito siempre sera andat a tu lado agarrados de la mano.",
+    mensaje: "Fue muy hermoso esa salida la llevo en mi corazon por simpre😭. No importa el destino, mi lugar favorito siempre sera andar a tu lado agarrados de la manito 🥺💘.",
     pos: [28, -10, 16]
   },
   {
@@ -46,8 +46,8 @@ const recuerdos = [
     foto: "assets/foto3.jpg",
     fallbackFoto: "assets/foto3.jpg.jpeg",
     titulo: "La Paz en Tus Abrazos",
-    tag: "Mi Refugio Seguro 🕊️",
-    mensaje: "Cuando el mundo en mi contra mi refugio son tus brazos, me siento seguro y en paz, un abrazo tuyo me devuelve la calma en un segundo. Eres mi hogar, mi refugio y el lugar donde mi alma siempre quiere descansar.",
+    tag: "Mi lugar seguro 🕊️",
+    mensaje: "Cuando el mundo esta en mi contra mi refugio son tus brazos bebe🥺💘, me siento seguro y en paz, un abrazo tuyo me devuelve la calma en un segundo. Eres mi hogar, mi refugio y el lugar donde mi alma siempre quiere descansar🥺💘.",
     pos: [-26, -15, -12]
   },
   {
@@ -55,17 +55,17 @@ const recuerdos = [
     foto: "assets/foto6.jpg",
     fallbackFoto: "assets/foto6.jpg.jpeg",
     titulo: "Nuestros hermosos momentos donde me siento yo mismo",
-    tag: "Locos enamorados",
-    mensaje: "Una noche/tarde. Donde al recordar esos momentos me doy cuenta de lo hermoso que es nuestra relacion, gracias por hacer mis momenos mas felices.",
+    tag: "Locos enamorados💘💘💘💘",
+    mensaje: "Una noche/tarde. Donde al recordar esos momentos me doy cuenta de lo hermoso que es nuestra relacion, gracias por hacer mis momentos mas felices my princesa hermosa🥺💘.",
     pos: [12, 24, 20]
   },
   {
     id: 6,
     foto: "assets/foto4.jpg",
     fallbackFoto: "assets/foto4.jpg.jpeg",
-    titulo: "Tu sonrisa, mi Inspiración",
+    titulo: "Tu sonrisa, mi Inspiración 😭💘",
     tag: "Luz de mis ojos 💘💫",
-    mensaje: "Tienes la sonrisa mas hermosa que existe y cuando te veo digo woww AMO A MI NOVIA. Verte sonreir me llena de energia, me hace soñar en grande y en un futuro y me recuerda la suerte tan infinita que tengo de tenerte en mi vida.",
+    mensaje: "Tienes la sonrisa mas hermosa que existe y cuando te veo digo woww AMO A MI NOVIA🥺💘. Verte sonreir me llena de energia, me hace soñar en grande y en un futuro y me recuerda la suerte tan infinita que tengo de tenerte en mi vida y que quiero que seas tu por siempre🥺💘.",
     pos: [-14, 22, -22]
   },
   {
@@ -83,7 +83,7 @@ const recuerdos = [
     fallbackFoto: "assets/foto7.jpg.jpeg",
     titulo: "Nuestras miradas secretas",
     tag: "Conexión de Almas 💘💘💘💘",
-    mensaje: "Ese instante en el que no necesitamos palabras para saber exactamente que piensa el otro. Nuestra conexion es magica, sincera y mas profunda de lo que jamas pude imaginar.",
+    mensaje: "Ese instante en el que no necesitamos palabras para saber exactamente que piensa el otro, solo con esas miradas hasta nos reimos, te amo con todo mi corazon pequeña🥺💘. Nuestra conexion es magica, sincera y mas profunda de lo que jamas pude imaginar tener con alguin🥺💘.",
     pos: [-28, 8, 25]
   },
   {
@@ -92,7 +92,7 @@ const recuerdos = [
     fallbackFoto: "assets/camino.jpeg",
     titulo: "Soñando con el futuro",
     tag: "Mil Caminos por Recorrer 🚀",
-    mensaje: "Cuando pienso en los años que vienen, en mis metas y en mis sueños, en todos ellos estas tu. Quiero seguir construyendo recuerdos, cumpliendo metas y celebrando la vida a tu lado.",
+    mensaje: "Cuando pienso en los años que vienen, en mis metas y en mis sueños, en todos ellos estas tu. Quiero seguir construyendo recuerdos, cumpliendo metas y celebrando la vida a tu lado y seguir soñando con un futuro juntos🥺💘.",
     pos: [6, -26, 14]
   },
   {
@@ -101,7 +101,7 @@ const recuerdos = [
     fallbackFoto: "assets/por.jpeg",
     titulo: "Un Amor Eterno",
     tag: "Por Siempre y Para Siempre ♾️",
-    mensaje: "Gracias por ser exactamente quien eres: dulce, valiente, inteligente y maravillosa. Te amo con cada latido de mi corazón y te elegiría una y mil veces en esta y en todas las vidas.",
+    mensaje: "Gracias por ser exactamente quien eres: dulce, valiente, inteligente y maravillosa, que me demuestra que me amas, amo todo de ti🥺💘. Te amo con cada latido de mi corazón y te elegiría una y mil veces en esta y en todas las vidas te seguire eligiendo, feliz cumple años mi niña preciosa te amito muchoooooo🥺💘.",
     pos: [-10, -22, -24]
   }
 ];
