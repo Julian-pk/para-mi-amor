@@ -501,29 +501,44 @@ html, body {
 
 /* ==========================================================================
    OPTIMIZACIONES RESPONSIVE PARA DISPOSITIVOS MÓVILES (HUD & HEADER)
-   Garantiza que todos los botones (incluyendo Vista General) quepan perfectamente
+   Garantiza que todos los botones y el título "Universo de Recuerdos" se lean completos
    ========================================================================== */
 @media (max-width: 767px) {
   .hud-overlay {
-    padding: calc(0.65rem + env(safe-area-inset-top)) 0.6rem calc(0.75rem + env(safe-area-inset-bottom)) 0.6rem;
+    padding: calc(0.65rem + env(safe-area-inset-top)) 0.5rem calc(0.75rem + env(safe-area-inset-bottom)) 0.5rem;
   }
 
   .hud-top-bar {
     gap: 0.35rem;
+    align-items: center;
   }
 
   .hud-brand {
     padding: 0.35rem 0.65rem;
     gap: 0.45rem;
+    min-width: 0;
+    flex-shrink: 0;
   }
 
   .brand-sparkle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .brand-title {
-    font-size: 0.78rem;
+    font-size: 0.74rem;
+    line-height: 1.15;
     letter-spacing: 0.02em;
+    white-space: normal; /* Permite 2 líneas elegantes para mostrar el nombre completo */
+    overflow: visible;
+    text-overflow: clip;
+    max-width: 95px; /* Quiebre limpio: "Universo de" y "Recuerdos" */
   }
 
   .brand-subtitle {
@@ -531,15 +546,18 @@ html, body {
   }
 
   .hud-actions {
-    gap: 0.35rem;
+    gap: 0.3rem;
+    flex-shrink: 0;
   }
 
   .counter-badge {
-    padding: 0.35rem 0.65rem;
-    min-height: 40px;
-    height: 40px;
+    padding: 0.3rem 0.55rem;
+    min-height: 38px;
+    height: 38px;
     font-size: 0.78rem;
-    gap: 0.3rem;
+    gap: 0.25rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .counter-icon {
@@ -547,19 +565,20 @@ html, body {
   }
 
   .hud-btn {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    flex-shrink: 0;
   }
 
   .hud-btn svg {
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
   }
 
   .sound-bars {
-    height: 14px;
+    height: 13px;
     gap: 2px;
   }
 
@@ -575,9 +594,9 @@ html, body {
 }
 
 /* Teléfonos estrechos (360px de ancho o menor) */
-@media (max-width: 380px) {
+@media (max-width: 360px) {
   .hud-overlay {
-    padding: calc(0.5rem + env(safe-area-inset-top)) 0.4rem calc(0.6rem + env(safe-area-inset-bottom)) 0.4rem;
+    padding: calc(0.5rem + env(safe-area-inset-top)) 0.35rem calc(0.6rem + env(safe-area-inset-bottom)) 0.35rem;
   }
 
   .hud-top-bar {
@@ -585,7 +604,7 @@ html, body {
   }
 
   .hud-brand {
-    padding: 0.3rem 0.45rem;
+    padding: 0.25rem 0.45rem;
     gap: 0.35rem;
   }
 
@@ -594,7 +613,8 @@ html, body {
   }
 
   .brand-title {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    max-width: 85px;
   }
 
   .hud-actions {
@@ -602,27 +622,22 @@ html, body {
   }
 
   .counter-badge {
-    padding: 0.3rem 0.45rem;
-    min-height: 38px;
-    height: 38px;
-    font-size: 0.74rem;
-    gap: 0.25rem;
-  }
-
-  .counter-icon {
-    font-size: 0.8rem;
+    padding: 0.25rem 0.4rem;
+    min-height: 36px;
+    height: 36px;
+    font-size: 0.72rem;
   }
 
   .hud-btn {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    min-height: 38px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
   }
 
   .hud-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
   }
 }
 
